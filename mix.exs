@@ -27,6 +27,6 @@ defmodule Monotonic.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [ {:c_monotonic_time, github: "magnetised/c_monotonic_time", compile: "./rebar compile"} ]
+    [ {:c_monotonic_time, git: "https://github.com/magnetised/c_monotonic_time.git", compile: "./rebar compile"} ]
   end
 end
