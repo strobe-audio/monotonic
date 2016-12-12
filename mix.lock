@@ -1,1 +1,1 @@
-%{"c_monotonic_time": {:git, "https://github.com/magnetised/c_monotonic_time.git", "a24bee75ac0ab65e7674727a93137b9d025fb72d", []}}
+%{"c_monotonic_time": {:git, "https://github.com/magnetised/c_monotonic_time.git", "88afba0ef780bb7fc8f200121d3c1908375e62cd", []}}
