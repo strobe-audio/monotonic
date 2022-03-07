@@ -2,7 +2,7 @@ defmodule Monotonic do
   defmacro __using__(_opts) do
     quote do
       require Monotonic
-      import  Monotonic, only: [monotonic_microseconds: 0, monotonic_milliseconds: 0]
+      import Monotonic, only: [monotonic_microseconds: 0, monotonic_milliseconds: 0]
     end
   end
 
@@ -14,20 +14,7 @@ defmodule Monotonic do
   """
   defmacro monotonic_microseconds do
     quote do
-      :c_monotonic_time.microseconds()
-    end
-  end
-
-  @doc """
-  Returns the current OS monotonic time in microseconds.
-
-  This macro is not imported so should be called as
-
-      Monotonic.microseconds
-  """
-  defmacro microseconds do
-    quote do
-      :c_monotonic_time.microseconds()
+      Monotonic.NIF.microseconds()
     end
   end
 
@@ -39,20 +26,21 @@ defmodule Monotonic do
   """
   defmacro monotonic_milliseconds do
     quote do
-      :c_monotonic_time.milliseconds()
+      Monotonic.NIF.milliseconds()
     end
   end
 
   @doc """
-  Returns the current OS monotonic time in milliseconds.
-
-  This macro is not imported so should be called as
-
-      Monotonic.milliseconds
+  Returns the current OS monotonic time in microseconds.
   """
-  defmacro milliseconds do
-    quote do
-      :c_monotonic_time.milliseconds()
-    end
+  def microseconds do
+    Monotonic.NIF.microseconds()
+  end
+
+  @doc """
+  Returns the current OS monotonic time in milliseconds.
+  """
+  def milliseconds do
+    Monotonic.NIF.milliseconds()
   end
 end
