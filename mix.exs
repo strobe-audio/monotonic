@@ -19,7 +19,7 @@ defmodule Monotonic.Mixfile do
 
   defp deps do
     [
-      {:elixir_make, "~> 0.4", runtime: false}
+      {:elixir_make, "~> 0.6", runtime: false}
     ]
   end
 end
