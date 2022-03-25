@@ -157,14 +157,14 @@ struct timespec ts;
 
 static ERL_NIF_TERM microseconds(ErlNifEnv *env, int argc,
                                  const ERL_NIF_TERM argv[]) {
-  clock_gettime(CLOCK_MONOTONIC_RAW, &ts);
+  clock_gettime(CLOCK_MONOTONIC, &ts);
   return enif_make_uint64(env, (ts.tv_sec * (uint64_t)1000000) +
                                    (uint64_t)(ts.tv_nsec / 1000.0));
 }
 
 static ERL_NIF_TERM milliseconds(ErlNifEnv *env, int argc,
                                  const ERL_NIF_TERM argv[]) {
-  clock_gettime(CLOCK_MONOTONIC_RAW, &ts);
+  clock_gettime(CLOCK_MONOTONIC, &ts);
   return enif_make_uint64(env, (ts.tv_sec * (uint64_t)1000) +
                                    (uint64_t)(ts.tv_nsec / 1000000.0));
 }
