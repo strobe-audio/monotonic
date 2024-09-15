@@ -3,3 +3,5 @@
 erl_crash.dump
 *.ez
 .tool-versions
+.elixir_ls
+priv/monotonic_nif.so
